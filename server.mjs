@@ -41,11 +41,12 @@ const server = http.createServer((req, res) => {
       res.write("ERROR: YOU'VE DOOMED US ALL");
       res.end();
     }
+    const data = JSON.parse(Buffer.concat(chunks).toString());
+    console.log(data);
   });
   //Put all the chunks together and read the message
   //Reconstructing the parts of the message
-  const data = JSON.parse(Buffer.concat(chunks).toString());
-  console.log(data);
+
   //GET request but technically a wildcard
 });
 server.listen(5000, () => {
